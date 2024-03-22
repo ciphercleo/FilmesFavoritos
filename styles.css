@@ -1,0 +1,162 @@
+/* Importa a fonte Montserrat do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* paleta de cores utilizada: https://colorhunt.co/palette/dcf2f17fc7d93654860f1035 */
+
+/* variáveis de cor */
+:root {
+    --cor-texto: #DCF2F1;
+    --cor-numero: #7FC7D9;
+    --cor-fundo: #365486;
+    --cor-borda: #0F1035;
+}
+
+/* reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* estilos para o body */
+body {
+    background-color: var(--cor-fundo);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    color: beige;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.apresentacao {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    max-width: 600px;
+    margin: auto;
+    flex-direction: column;
+}
+
+.apresentacao__imagem {
+    width: 200px; /* diminui a imagem, o heigth se adapta de acordo com a width */
+    display: block;
+    border: 10px solid var(--cor-borda);
+    border-radius: 100%;
+    margin: 0 auto 10px;
+}
+
+.apresentacao__tags {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.apresentacao__tag {
+    text-align: center;
+    color: black;
+    padding: 5px 10px; 
+    border-radius: 0;
+    font-weight: bold; 
+    font-size: 14px;
+}
+
+.apresentacao__tag:first-child {
+    border-top-left-radius: 10px; /* arredonda apenas a borda superior esquerda */
+    border-bottom-left-radius: 10px; /* arredonda apenas a borda inferior esquerda */
+}
+
+.apresentacao__tag:last-child {
+    border-top-right-radius: 10px; /* arredonda apenas a borda superior direita */
+    border-bottom-right-radius: 10px; /* arredonda apenas a borda inferior direita */
+}
+
+/* cor para IF e Aluna */
+.apresentacao__instituto {
+    background-color: green;
+}
+
+.apresentacao__ocupacao {
+    background-color: red;
+}
+
+/* css para a caixa de dicas no canto superior esquerdo */
+.caixa-dicas {
+    position: fixed;
+    top: 20px; /* distância do topo */
+    left: 20px; /* distância da esquerda */
+    background-color: var(--cor-borda); /* fundo */
+    color: white; /* Cor do texto */
+    padding: 10px 20px; /* espaçamento interno */
+    border-radius: 5px; 
+    text-decoration: none; /* remove sublinhado do link */
+    z-index: 999; /* z-index alto para garantir que fique acima do conteúdo */
+}
+
+.caixa-dicas a {
+    text-decoration: none;
+    color: var(--cor-numero);
+}
+
+a:hover{
+    color: #bceefa;
+}
+
+.conteudo {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+/* estilos para cada filme na seção de conteúdo */
+.conteudo__filme {
+    width: calc(33.33% - 20px);
+    background-color: rgba(255, 255, 255, 0.1);
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+/* estilos para o número do filme */
+.conteudo__filme__numero {
+    font-size: 25px;
+    color: var(--cor-numero);
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+/* estilos para o título do filme */
+.conteudo__filme__titulo {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+/* estilos para as sinopses */
+.conteudo__texto {
+    font-size: 12px; 
+    line-height: 1.5;
+}
+
+/* media query para dispositivos com tela pequena */
+@media (max-width: 546px) {
+    .caixa-dicas {
+        top: 10px; 
+        left: 10px; 
+        padding: 5px 10px; 
+        font-size: 12px; 
+    }
+    /* altera o layout da seção de conteúdo para column */
+    .conteudo {
+        flex-direction: column;
+        align-items: center; /* centraliza os itens*/
+    }
+
+    /* a largura dos filmes ocupa 100% da largura da tela */
+    .conteudo__filme {
+        width: calc(100% - 20px);
+    }
+}
